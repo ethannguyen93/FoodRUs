@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+		  xmlns:c="http://java.sun.com/jsp/jstl/core"
+		  xmlns:f="http://java.sun.com/jsp/jstl/fmt">
+<jsp:directive.page import="com.sun.xml.internal.txw2.Document"/>
+	<jsp:directive.page contentType="text/html; charset=UTF-8" 
+		pageEncoding="UTF-8" session="false"/>
+	<jsp:output doctype-root-element="html"
+		doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+		omit-xml-declaration="true" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Home | Food R Us</title>
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div id="side">
+					<jsp:include page="side.jspx">
+					</jsp:include>
+				</div>
+				<div class="col-sm-9 padding-right">
+					<div class="features_items"><!--features_items-->
+						<h2 class="title text-center">Features Items</h2>
+						<c:if test="${itemadded}">
+							<p>Item is added to cart</p>
+						</c:if>
+						<div class="table-responsive cart_info">
+							<table class="table table-condensed">
+								<thead>
+									<tr class="cart_menu">
+										<td class="itemID">ID</td>
+										<td class="description">Item</td>
+										<td class="price">Price</td>
+										<td class="unit">Unit</td>
+										<td class="quantity">Quantity</td>
+										<td></td>
+									</tr>
+								</thead>
+								<tbody>
+									<c:if test="${hasItem}">
+										<p>There is no item exist</p>
+									</c:if>
+									<c:forEach var="item" items="${items}">
+										<tr>
+											<td class="cart_item_ID">
+												<p id="item_ID" value="${item.id}">${item.id}</p>
+											</td>
+											<td class="cart_description">
+												<p>${item.name}</p>
+											</td>
+											<td class="cart_price">
+											  <f:formatNumber type="currency">${item.price}</f:formatNumber>
+											</td>
+											<td class="cart_unit">
+												<p>${item.unit}</p>
+											</td>
+											<td class="item_quantity">
+												<div class="item_quantity_button">
+													<button class="item_quantity_up" onclick="increaseQuantity(this)" value="${item.id}"> + </button>
+													<input class="item_quantity_input" disabled="true" type="text" name="quantity" value="1" autocomplete="off" size="2" id="${item.id}_item_quantity"/>
+													<button class="item_quantity_down" onclick="decreaseQuantity(this)" value="${item.id}"> - </button>
+												</div>
+											</td>
+											<form name="${item.id}_submit">
+											<td class="cart_add">
+												<input type="hidden" name="itemID" value="${item.id}"/>
+												<input type="hidden" name="${item.id}_itemquantity" value="10"/>
+												<button class="btn btn-default add-to-cart" id="${item.id}_btnCart" onclick="getquantity(this)" value="${item.id}"><i class="fa fa-shopping-cart"></i>Add to cart</button >
+											</td>
+											</form>	
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
+						
+					</div><!--features_items-->
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
+</jsp:root>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+	<jsp:directive.page contentType="text/html; charset=UTF-8" 
+		pageEncoding="UTF-8" session="false"/>
+	<jsp:output doctype-root-element="html"
+		doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+		omit-xml-declaration="true" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Insert title here</title>
+</head>
+<body>
+	<section id="slider"><!--slider-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="slider-carousel" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+							<li data-target="#slider-carousel" data-slide-to="1"></li>
+							<li data-target="#slider-carousel" data-slide-to="2"></li>
+						</ol>
+						
+						<div class="carousel-inner">
+							<div class="item active">
+								<div class="col-sm-6">
+									<h1><span>E</span>-Food</h1>
+									<h2>Grocery Gateway</h2>
+									<p>Hassle free! We deliver the best meal to your door.</p>
+									<button type="button" class="btn btn-default get">Get it now</button>
+								</div>
+								<div class="col-sm-6">
+									<img src="${pageContext.request.contextPath}/images/home/food1.jpg" class="girl img-responsive" alt="" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="col-sm-6">
+									<h1><span>E</span>-Food</h1>
+									<h2>Grocery Gateway</h2>
+									<p>Experience shopping made easy</p>
+									<button type="button" class="btn btn-default get">Get it now</button>
+								</div>
+								<div class="col-sm-6">
+									<img src="${pageContext.request.contextPath}/images/home/food2.jpg" class="girl img-responsive" alt="" />
+								</div>
+							</div>
+							
+							<div class="item">
+								<div class="col-sm-6">
+									<h1><span>E</span>-Food</h1>
+									<h2>Grocery Gateway</h2>
+									<p>A celebration of family and community</p>
+									<button type="button" class="btn btn-default get">Get it now</button>
+								</div>
+								<div class="col-sm-6">
+									<img src="${pageContext.request.contextPath}/images/home/food3.jpg" class="girl img-responsive" alt="" />
+								</div>
+							</div>
+							
+						</div>
+						
+						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+							<i class="fa fa-angle-left"><jsp:text/></i>
+						</a>
+						<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+							<i class="fa fa-angle-right"><jsp:text/></i>
+						</a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</section><!--/slider-->
+</body>
+</html>
+</jsp:root>

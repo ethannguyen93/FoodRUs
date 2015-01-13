@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+	<jsp:directive.page contentType="text/html; charset=UTF-8" 
+		pageEncoding="UTF-8" session="false"/>
+	<jsp:output doctype-root-element="html"
+		doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+		omit-xml-declaration="true" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Home | Food R Us</title>
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet"/>
+</head>
+<body>
+	<div class="container text-center">
+		<div class="logo-404">
+			<a href="index.html"><img src="${pageContext.request.contextPath}/images/home/logo.png" alt="" /></a>
+		</div>
+		<div class="content-404">
+			<img src="${pageContext.request.contextPath}/images/404/404.png" class="img-responsive" alt="" />
+			<h1><b>OPPS!</b> We Couldn’t Find this Page</h1>
+			<p>Uh... So it looks like you missed something. The page you are looking for is not valid.</p>
+			<h2><a href="${pageContext.request.contextPath}/eFoods/">Bring me back Home</a></h2>
+		</div>
+	</div>
+</body>
+</html>
+</jsp:root>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+			xmlns:c="http://java.sun.com/jsp/jstl/core">
+	<jsp:directive.page contentType="text/html; charset=UTF-8" 
+		pageEncoding="UTF-8" session="false"/>
+	<jsp:output doctype-root-element="html"
+		doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+		omit-xml-declaration="true" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Home | Food R Us</title> 
+</head>
+<body>
+	<footer id="footer"><!--Footer-->
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<div class="companyinfo">
+							<h2><span>Food</span> R Us</h2>
+							<p>With the best ingredient, we create amazing dinner experiences with people you love!</p>
+						</div>
+					</div>
+					<div class="col-sm-7">
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<div class="iframe-img">
+									<img src="${pageContext.request.contextPath}/images/home/iframe1.png" alt="" />
+								</div>
+								<div class="overlay-icon">
+									<i class="fa fa-play-circle-o"><jsp:text/></i>
+								</div>
+								<p>Food R Us</p>
+								<h2>28 Nov 2014</h2>
+							</div>
+						</div>
+						
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<div class="iframe-img">
+									<img src="${pageContext.request.contextPath}/images/home/iframe2.png" alt="" />
+								</div>
+								<div class="overlay-icon">
+									<i class="fa fa-play-circle-o"><jsp:text/></i>
+								</div>
+								<p>Food R Us</p>
+								<h2>28 Nov 2014</h2>
+							</div>
+						</div>
+						
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<div class="iframe-img">
+									<img src="${pageContext.request.contextPath}/images/home/iframe3.png" alt="" />
+								</div>
+								<div class="overlay-icon">
+									<i class="fa fa-play-circle-o"><jsp:text/></i>
+								</div>
+								<p>Food R Us</p>
+								<h2>28 Nov 2014</h2>
+							</div>
+						</div>
+						
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<div class="iframe-img">
+									<img src="${pageContext.request.contextPath}/images/home/iframe4.png" alt="" />
+								</div>
+								<div class="overlay-icon">
+									<i class="fa fa-play-circle-o"><jsp:text/></i>
+								</div>
+								<p>Food R Us</p>
+								<h2>28 Nov 2014</h2>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="address">
+							<img src="${pageContext.request.contextPath}/images/home/map.png" alt="" />
+							<p>4770 Keele Street, Toronto ON M3J 1P3</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer-widget">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Service</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Online Help</a></li>
+								<li><a href="#">Contact Us</a></li>
+								<li><a href="#">Order Status</a></li>
+								<li><a href="#">Change Location</a></li>
+								<li><a href="#">FAQ’s</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Quick Shop</h2>
+							<ul class="nav nav-pills nav-stacked">
+							<c:forEach var="cat" items="${categories}">
+								<li><a href="${pageContext.request.contextPath}/eFoods/category/${cat.name}">${cat.name}</a></li>
+							</c:forEach>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Policies</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Terms of Use</a></li>
+								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="#">Refund Policy</a></li>
+								<li><a href="#">Billing System</a></li>
+								<li><a href="#">Ticket System</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>About Shopper</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Company Information</a></li>
+								<li><a href="#">Careers</a></li>
+								<li><a href="#">Store Location</a></li>
+								<li><a href="#">Affillate Program</a></li>
+								<li><a href="#">Copyright</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-3 col-sm-offset-1">
+						<div class="single-widget">
+							<h2>About Shopper</h2>
+							<form action="#" class="searchform">
+								<input type="text" placeholder="Your email address" />
+								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"><jsp:text/></i></button>
+								<p>Let us know your feedback <br />about our services and design.</p>
+							</form>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					<p class="pull-left">Copyright © 2014 Food R Us Inc. All rights reserved.</p>
+				</div>
+			</div>
+		</div>
+		
+	</footer><!--/Footer-->
+</body>
+</html>
+</jsp:root>

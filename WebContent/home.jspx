@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+		  xmlns:c="http://java.sun.com/jsp/jstl/core">
+	<jsp:directive.page contentType="text/html; charset=UTF-8" 
+		pageEncoding="UTF-8" session="false"/>
+	<jsp:output doctype-root-element="html"
+		doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+		omit-xml-declaration="true" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Checkout | E-Shopper</title>
+</head>
+<body>
+	<div id="banner">
+		<jsp:include page="banner.jspx">
+		</jsp:include>
+	</div>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div id="side">
+					<jsp:include page="side.jspx">
+					</jsp:include>
+				</div>
+				<div class="col-sm-9 padding-right">
+					<div class="features_items"><!--features_items-->
+						<h2 class="title text-center">Features Items</h2>
+						<div class="col-sm-4">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+										<div class="productinfo text-center">
+											<img src="${pageContext.request.contextPath}/images/home/f_food1.jpg" alt="" />
+											<h2>$6.49/lb</h2>
+											<p>T6 Sirloin Meat</p>
+											<form name="0905A112_submit">
+											<td class="cart_add">
+												<input type="hidden" name="itemID" value="0905A112"/>
+												<input type="hidden" name="0905A112_itemquantity" value="1"/>
+												<button class="btn btn-default add-to-cart" id="0905A112_btnCart" onclick="getquantity(this)" value="0905A112"><i class="fa fa-shopping-cart"><jsp:text /></i>Add to cart</button >
+											</td>
+											</form>
+										</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+									<div class="productinfo text-center">
+										<img src="${pageContext.request.contextPath}/images/home/f_food2.jpg" alt="" />
+										<h2>$6.72/lb</h2>
+										<p>R3 Breast Meat</p>
+										<form name="0905A306_submit">
+											<td class="cart_add">
+												<input type="hidden" name="itemID" value="0905A306"/>
+												<input type="hidden" name="0905A306_itemquantity" value="1"/>
+												<button class="btn btn-default add-to-cart" id="0905A306_btnCart" onclick="getquantity(this)" value="0905A306"><i class="fa fa-shopping-cart"><jsp:text /></i>Add to cart</button >
+											</td>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+									<div class="productinfo text-center">
+										<img src="${pageContext.request.contextPath}/images/home/f_food3.jpg" alt="" />
+										<h2>$4.3/ea</h2>
+										<p>Brownie Ice Cream with Strawberry</p>
+										<form name="1409S253_submit">
+											<td class="cart_add">
+												<input type="hidden" name="itemID" value="1409S253"/>
+												<input type="hidden" name="1409S253_itemquantity" value="1"/>
+												<button class="btn btn-default add-to-cart" id="1409S253_btnCart" onclick="getquantity(this)" value="1409S253"><i class="fa fa-shopping-cart"><jsp:text /></i>Add to cart</button >
+											</td>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+									<div class="productinfo text-center">
+										<img src="${pageContext.request.contextPath}/images/home/f_food4.jpg" alt="" />
+										<h2>$4.26/ea</h2>
+										<p>Semi-Cheddar Cheese by JC</p>
+										<form name="2002H063_submit">
+											<td class="cart_add">
+												<input type="hidden" name="itemID" value="2002H063"/>
+												<input type="hidden" name="2002H063_itemquantity" value="1"/>
+												<button class="btn btn-default add-to-cart" id="2002H063_btnCart" onclick="getquantity(this)" value="2002H063"><i class="fa fa-shopping-cart"><jsp:text /></i>Add to cart</button >
+											</td>
+										</form>
+									</div>
+									<img src="${pageContext.request.contextPath}/images/home/new.png" class="new" alt="" />
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+									<div class="productinfo text-center">
+										<img src="${pageContext.request.contextPath}/images/home/f_food5.jpg" alt="" />
+										<h2>$1.42/ea</h2>
+										<p>K5 Raisin Cereal</p>
+										<form name="2910h734_submit">
+											<td class="cart_add">
+												<input type="hidden" name="itemID" value="2910h734"/>
+												<input type="hidden" name="2910h734_itemquantity" value="1"/>
+												<button class="btn btn-default add-to-cart" id="2910h734_btnCart" onclick="getquantity(this)" value="2910h734"><i class="fa fa-shopping-cart"><jsp:text /></i>Add to cart</button >
+											</td>
+										</form>
+									</div>
+									<img src="${pageContext.request.contextPath}/images/home/sale.png" class="new" alt="" />
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+									<div class="productinfo text-center">
+										<img src="${pageContext.request.contextPath}/images/home/f_food6.jpg" alt="" />
+										<h2>$6.12/box</h2>
+										<p>E8 Nuts Ice cream</p>
+										<form name="1409S123_submit">
+											<td class="cart_add">
+												<input type="hidden" name="itemID" value="1409S123"/>
+												<input type="hidden" name="1409S123_itemquantity" value="1"/>
+												<button class="btn btn-default add-to-cart" id="1409S123_btnCart" onclick="getquantity(this)" value="1409S123"><i class="fa fa-shopping-cart"><jsp:text /></i>Add to cart</button >
+											</td>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div><!--features_items-->
+					
+					
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
+</jsp:root>

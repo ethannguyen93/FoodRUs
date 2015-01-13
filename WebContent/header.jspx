@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+			 xmlns:fn="http://java.sun.com/jsp/jstl/core">
+	<jsp:directive.page contentType="text/html; charset=UTF-8" 
+		pageEncoding="UTF-8" session="true"/>
+	<jsp:output doctype-root-element="html"
+		doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+		omit-xml-declaration="true" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Home | Food R Us</title>
+</head>
+<body>
+	<header id="header"><!--header-->
+		<div class="header_top"><!--header_top-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="contactinfo">
+							<ul class="nav nav-pills">
+								<li><a href="#"><i class="fa fa-phone"> +1 647 835 9012</i></a></li>
+								<li><a href="#"><i class="fa fa-envelope"> ethannguyen93@hotmail.com</i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="social-icons pull-right">
+							<ul class="nav navbar-nav">
+								<li><a href="#"><i class="fa fa-facebook"><jsp:text/></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"><jsp:text/></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"><jsp:text/></i></a></li>
+								<li><a href="#"><i class="fa fa-dribbble"><jsp:text/></i></a></li>
+								<li><a href="#"><i class="fa fa-google-plus"><jsp:text/></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header_top-->
+		
+		<div class="header-middle"><!--header-middle-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="logo pull-left">
+							<a href="${pageContext.request.contextPath}/eFoods/"><img src="${pageContext.request.contextPath}/images/home/logo.png" alt="" width="138" height="57" /></a>
+						</div>
+					</div>
+					<div class="col-sm-8">
+						<div class="shop-menu pull-right">
+							<ul class="nav navbar-nav">
+								<li><a href="${pageContext.request.contextPath}/Front/checkout/"><i class="fa fa-crosshairs"> Checkout </i></a></li>
+								<li><a href="${pageContext.request.contextPath}/Front/cart/"><i class="fa fa-shopping-cart"> Cart </i></a></li>
+								<li><a href="${pageContext.request.contextPath}/Front/login/"><i class="fa fa-lock"> Login</i></a></li>
+								<li><a href="${pageContext.request.contextPath}/Front/order/"><i class="fa fa-file"> Orders</i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-middle-->
+	
+		<div class="header-bottom"><!--header-bottom-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-9">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<div class="mainmenu pull-left">
+							<ul class="nav navbar-nav collapse navbar-collapse">
+								<li><a href="${pageContext.request.contextPath}/eFoods/" class="active">Home</a></li>
+								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"><jsp:text/></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a href="${pageContext.request.contextPath}/Front/category/allItems">Products</a></li>
+										<li><a href="${pageContext.request.contextPath}/Front/checkout/">Checkout</a></li> 
+										<li><a href="${pageContext.request.contextPath}/Front/cart/">Cart</a></li> 
+										<li><a href="login.html">Login</a></li> 
+                                    </ul>
+                                </li> 
+								<li><a href="${pageContext.request.contextPath}/Front/404/">404</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<form>
+							<input type="text" id="searchId" name = "search" placeholder="search"/>
+							<input type="submit" value="Search" id="report" name="report" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-bottom-->
+	</header><!--/header-->
+</body>
+</html>
+</jsp:root>
