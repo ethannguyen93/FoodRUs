@@ -40,6 +40,7 @@ public class CartController extends HttpServlet {
 		if (request.getParameter("updateItems") != null){
 			// get all the items in the request
 			Map<String,String[]> paramMap = request.getParameterMap();
+			// TODO why do we need this?
 			String[] item = paramMap.get("item");
 			Map<String, String> items = new HashMap<String, String>();
 			for (String i: item){
@@ -56,6 +57,7 @@ public class CartController extends HttpServlet {
 			request.setAttribute("itemremoved", true);
 		} 
 		
+		// TODO can we inline this?
 		goToCartJSP(request, response);
 		
 	}

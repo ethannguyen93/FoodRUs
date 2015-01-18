@@ -10,16 +10,20 @@ public class CartBean {
 		this.c = new HashMap<ItemBean, Integer>();
 	}
 	
-	public void addToCart(ItemBean i, int quantity){
+	public void addItem(ItemBean i, int quantity){
 		if (c.containsKey(i)){
 			c.put(i, c.get(i) + quantity);
 		}else
 			this.c.put(i, quantity);
 	}
-	public void updateCart(ItemBean i, int quantity){
-		c.put(i, quantity);
+	public void updateItem(ItemBean i, int quantity){
+		if (quantity != 0){
+			c.put(i, quantity);
+		} else {
+			c.remove(i);
+		}
 	}
-	public void removefromCart(ItemBean i){
+	public void removeItem(ItemBean i){
 		this.c.remove(i);
 	}
 	public Map<ItemBean, Integer> getMap(){

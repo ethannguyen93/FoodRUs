@@ -66,9 +66,9 @@ public class Cart {
 	public void addItem(String itemID, int itemQuantity){
 		try {
 			if (cart.isContains(itemID)){
-				cart.addToCart(cart.getItemByID(itemID), itemQuantity);
+				cart.addItem(cart.getItemByID(itemID), itemQuantity);
 			}else{
-				cart.addToCart(dao.getItembyID(itemID), itemQuantity);
+				cart.addItem(dao.getItembyID(itemID), itemQuantity);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -76,7 +76,7 @@ public class Cart {
 		}
 	}
 	public void removeItem(String itemID){
-		cart.removefromCart(cart.getItemByID(itemID));
+		cart.removeItem(cart.getItemByID(itemID));
 	}
 	public Map<ItemBean, Integer> getCart(){
 		return cart.getMap();
@@ -86,14 +86,14 @@ public class Cart {
 		for (String itemNumber : itemQuantities.keySet()){
 			ItemBean i = im.getItem(itemNumber);
 			int quantity = Integer.parseInt(itemQuantities.get(itemNumber));
-			c.addToCart(i, quantity);
+			c.addItem(i, quantity);
 		}
 		return c;
 	}
 	public void updateCart(Map<String, String> item){
 		for (String i: item.keySet()){
 			int q = Integer.parseInt(item.get(i));
-			cart.updateCart(cart.getItemByID(i), q);
+			cart.updateItem(cart.getItemByID(i), q);
 		}
 	}
 	public double getTax(CartBean cart){

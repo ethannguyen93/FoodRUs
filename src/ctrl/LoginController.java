@@ -56,63 +56,60 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("target", "login.jspx");
 		
-		String username = request.getParameter("username"); // TODO right name?
+		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		
 		// FIXME not working, go to home page instead
 		String redirectURL = request.getParameter("redirectURL");
 		if (redirectURL == null){
 			request.getHeader("referer");
 		}
 		request.setAttribute("redirectURL", redirectURL);
+		
 		if (password != null){
 			if (!request.isSecure()){
 				// this is very bad, the user could have just lost their password to a man-in-the-middle
-				// use a string builder just because it's faster 
-				// than builtin string concatenation
+				// use a string builder because it's faster
 				String error = new StringBuilder("This request was not securely transmitted (over HTTPS). ")
-						.append("This is very bad. ")
-						.append("You may have lost your password to bad people. ")
+						.append("This is very bad. You may have lost your password to bad people. ")
 						.append("Please reset your password, especially if you logged in with your CSE account.")
 						.toString();
 				request.setAttribute("loginError", error);
-				request.getRequestDispatcher("index.jspx")
-					.forward(request, response);
-				return;
 			} else if (username != null){
-
 				CustomerBean cb = checkLogin(username, password);
 				if (cb != null){ // successful login
 					request.getSession().setAttribute("customer", cb);
 					request.setAttribute("success", true);
 					request.setAttribute("redirectURL", redirectURL);
-					request.getRequestDispatcher("/index.jspx")
-						.forward(request, response);
-					return;
 				} else { // failed login
 					// redirect back to login page and give error
 					request.setAttribute("loginError", "Wrong username and password. Please try again.");
-					request.getRequestDispatcher("/index.jspx")
-						.forward(request, response);
-					return;
 				}
+			} else {
+				request.setAttribute("loginError", "Username can't be blank. Please try again.");
 			}
 		} else {
-			// FIXME change default jsp
-			request.getRequestDispatcher("/index.jspx")
-					.forward(request, response);
-			return;
+			request.setAttribute("loginError", "Password can't be blank. Please try again.");
 		}
+		request.getRequestDispatcher("/index.jspx")
+		.forward(request, response);
 	}
 
+	/**
+	 * Checks authentication against services
+	 * @param username
+	 * @param password
+	 * @return
+	 * @throws ServletException
+	 */
 	private CustomerBean checkLogin(String username, String password)
 			throws ServletException {
+		//Create connection to AUTH server using some hacky HTTPS code
 		HttpsURLConnection connection = null;
 
 		try {
-			//Create connection
 
 			String usernamePasswordBase64 = Base64.encode((username+":"+password).getBytes());
-
 			
 			connection = (HttpsURLConnection) authServerURL.openConnection();
 			connection.setRequestMethod("GET");  

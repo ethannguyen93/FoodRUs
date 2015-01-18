@@ -35,11 +35,10 @@ public class CategoryController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			request.setAttribute("target", "item.jspx");
-			String path = request.getPathInfo();
-			path = path.replace("%20", " ");
+			String path = request.getPathTranslated();
+			//path = path.replace("%20", " ");
 			Category c = (Category) this.getServletContext().getAttribute("category");
 			Item im = (Item) this.getServletContext().getAttribute("item");
-			List<CategoryBean> allCategories = c.getCategories();
 			List<ItemBean> items;
 
 			// if path starts with /category, specific category is selected

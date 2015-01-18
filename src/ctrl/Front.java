@@ -54,6 +54,8 @@ public class Front extends HttpServlet
 	{
 		showCategory(request);
 		String pathInfo = request.getPathInfo();
+		
+		// send to Home
 		if (pathInfo == null || pathInfo.equals("/")  || pathInfo.equals("/*"))
 		{
 			response.sendRedirect(request.getContextPath() + "/Front/Home");
