@@ -6,12 +6,12 @@
   </welcome-file-list>
   <servlet>
     <servlet-name>Home</servlet-name>
-    <servlet-class>Controller.HomeController</servlet-class>
+    <servlet-class>ctrl.HomeController</servlet-class>
     <load-on-startup>0</load-on-startup>
   </servlet>
   <servlet>
     <servlet-name>Category</servlet-name>
-    <servlet-class>Controller.CategoryController</servlet-class>
+    <servlet-class>ctrl.CategoryController</servlet-class>
     <load-on-startup>0</load-on-startup>
   </servlet>
 </web-app>

@@ -1,4 +1,4 @@
-package Controller;
+package ctrl;
 
 import java.io.IOException;
 import java.sql.SQLException;

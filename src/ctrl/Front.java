@@ -1,4 +1,4 @@
-package Controller;
+package ctrl;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -59,24 +59,24 @@ public class Front extends HttpServlet
 		if (pathInfo == null || pathInfo.equals("/")  || pathInfo.equals("/*"))
 		{
 			response.sendRedirect(request.getContextPath() + "/Front/Home");
+			return;
+		}
+	
+		String path = pathInfo.substring(1);
+		if (path.equals("Home"))
+		{
+			this.getServletContext().getNamedDispatcher(path).forward(request, response);
+		}else if (path.startsWith("Category"))
+		{
+			this.getServletContext().getNamedDispatcher("Category").forward(request, response);
 		}
 		else
 		{
-			String path = pathInfo.substring(1);
-			if (path.equals("Home"))
-			{
-				this.getServletContext().getNamedDispatcher(path).forward(request, response);
-			}else if (path.startsWith("Category"))
-			{
-				this.getServletContext().getNamedDispatcher("Category").forward(request, response);
-			}
-			else
-			{
-				request.setAttribute("target", "404");
-				request.getRequestDispatcher("/404.jspx").forward(request, response);
-			}
-			
+			request.setAttribute("target", "404");
+			request.getRequestDispatcher("/404.jspx").forward(request, response);
 		}
+		
+		
 	}
 
 	/**
