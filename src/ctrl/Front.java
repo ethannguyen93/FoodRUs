@@ -3,7 +3,6 @@ package ctrl;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Category;
 import model.Item;
-import model.admin;
 
 /**
  * Servlet implementation class Front
@@ -66,7 +64,7 @@ public class Front extends HttpServlet
 		if (path.equals("Home"))
 		{
 			this.getServletContext().getNamedDispatcher(path).forward(request, response);
-		}else if (path.startsWith("Category"))
+		} else if (path.startsWith("Category"))
 		{
 			this.getServletContext().getNamedDispatcher("Category").forward(request, response);
 		}

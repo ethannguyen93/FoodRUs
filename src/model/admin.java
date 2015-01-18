@@ -11,7 +11,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import model.bean.ItemBean;
-//import model.dao.ItemDAO;
+import model.dao.ItemDAO;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -22,9 +22,9 @@ import org.xml.sax.SAXException;
 import com.sun.org.apache.xerces.internal.parsers.DOMParser;
 
 public class admin {
-	//final ItemDAO dao;
+	final ItemDAO dao;
 	public admin() throws SQLException{
-		//dao = new ItemDAO();
+		dao = new ItemDAO();
 	}
 	public List<String> getOrderList(String startDate, String folderPath) throws IOException, SAXException, ParserConfigurationException{
 		File folder = new File(folderPath);
@@ -53,7 +53,7 @@ public class admin {
 		}
 		return file;
 	}
-	//public ItemBean getItem(String itemNumber) throws Exception{
-		//return dao.getItem(itemNumber);
-	//}
+	public ItemBean getItem(String itemNumber) throws Exception{
+		return dao.getItembyID(itemNumber);
+	}
 }
