@@ -41,6 +41,7 @@ public class CheckOutController extends HttpServlet {
 	}
 	
 	public void init() throws ServletException {
+		super.init();
 		orderFolder = this.getServletContext().getRealPath(
 				"/order");
 	}

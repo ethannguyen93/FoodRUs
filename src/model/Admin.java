@@ -21,9 +21,9 @@ import org.xml.sax.SAXException;
 
 import com.sun.org.apache.xerces.internal.parsers.DOMParser;
 
-public class admin {
+public class Admin {
 	final ItemDAO dao;
-	public admin() throws SQLException{
+	public Admin() throws SQLException{
 		dao = new ItemDAO();
 	}
 	public List<String> getOrderList(String startDate, String folderPath) throws IOException, SAXException, ParserConfigurationException{

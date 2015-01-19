@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.admin;
+import model.Admin;
 
 /**
  * Servlet implementation class ViewOrder
@@ -29,11 +29,11 @@ public class ViewOrder extends HttpServlet {
     @Override
   	public void init() throws ServletException {
   		super.init();
-		admin model = (admin) this
+		Admin model = (Admin) this
 				.getServletContext().getAttribute("model");
 		if (model == null) {
 			try {
-				model = new admin();
+				model = new Admin();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -46,6 +46,7 @@ public class ViewOrder extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// FIXME why do we need this class? combine with order controller
 		String filename = request.getParameter("fn");
 		if (filename == null){
 			response.sendRedirect(request.getContextPath()+"/eFoods/");

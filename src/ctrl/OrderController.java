@@ -15,7 +15,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class OrderController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private static final String ORDER_DIRECTORY_NAME = "order";
+	private String orderPath; 
+	
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -24,26 +27,30 @@ public class OrderController extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    @Override
+    public void init() throws ServletException {
+    	super.init();
+    	orderPath = this.getServletContext().getRealPath("/" + ORDER_DIRECTORY_NAME);
+    }
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("target", "/order.jspx");
-		String f = "order";
-		String filename = this.getServletContext().getRealPath("/" + f);
-		File folder = new File(filename);
-		File[] listofFiles = folder.listFiles();
-		List<String> file = new ArrayList<String>();
-		for(File f1: listofFiles){
-			if (f1.isFile()){
-				String nfile = f1.getName();
-				nfile = nfile.substring(0, nfile.indexOf("."));
-				if (!nfile.equals("PO")){
-					file.add(nfile);
+		File orderFolder = new File(orderPath);
+		File[] listofFiles = orderFolder.listFiles();
+		List<String> orders = new ArrayList<String>();
+		for(File file: listofFiles){
+			if (file.isFile()){
+				String filename = file.getName();
+				filename = filename.substring(0, filename.indexOf("."));
+				if (!filename.equals("PO")){
+					orders.add(filename);
 				}
 			}
 		}
-		request.setAttribute("filenames", file);
+		request.setAttribute("filenames", orders);
 		request.getRequestDispatcher("/index.jspx")
 		.forward(request, response);
 	}
